@@ -1,0 +1,33 @@
+#create {
+    margin: 1%;
+}
+#createTwitCard { 
+    width: 50vw; 
+    padding: 1%;
+    margin: auto;
+    margin-bottom: 1%;
+}
+.tweet {
+    width: 50vw;
+    margin: auto;
+    border-bottom: solid lightgrey;
+}
+#outermostDiv {
+    margin: auto;
+}
+@media only screen and (min-width: 200px) {
+    .tweet {
+        width: 80vw;
+    }
+    #createTwitCard {
+        width: 80vw;
+    }
+}
+@media only screen and (min-width: 800px) {
+    .tweet {
+        width: 60vw;
+    }
+    #createTwitCard {
+        width: 60vw;
+    }
+}

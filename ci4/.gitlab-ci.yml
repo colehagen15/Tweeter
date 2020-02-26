@@ -1,0 +1,32 @@
+image: rejack/php7-testing-phpunit-ci4:7.2
+
+before_script:
+  - shopt -s extglob dotglob
+  - rm -rf aauth_temp && mkdir aauth_temp
+  - mv !(aauth_temp) aauth_temp
+  - git clone https://github.com/codeigniter4/CodeIgniter4.git CodeIgniter4 -b ${CODEIGNITER_VERSION}
+  - cp -r aauth_temp/* CodeIgniter4 && cd CodeIgniter4 && cp _travis/env_gitlab .env
+  - composer install --prefer-source
+  - composer require spomky-labs/otphp --prefer-source
+
+services:
+  - mysql:5.7
+
+variables:
+  MYSQL_DATABASE: aauth_v3_ci4_testing
+  MYSQL_ROOT_PASSWORD: root
+  CODEIGNITER_VERSION: 'v4.0.0-beta.1'
+
+test:
+  after_script: 
+  - cp -R CodeIgniter4/build/coverage coverage
+
+  artifacts:
+    when: always
+    expire_in: 2 weeks
+    name: "coverage"
+    paths:
+    - coverage/
+
+  script:
+  - vendor/bin/phpunit --configuration phpunit.xml --coverage-text --colors=never

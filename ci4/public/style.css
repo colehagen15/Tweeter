@@ -1,0 +1,47 @@
+* {
+    text-align: center;
+}
+h1 {
+    font-size: 50px;
+}
+#main {
+    width: 50vw;
+    margin: 2%;
+    height: 5vh;
+    border: none;
+    font-size: 30px;
+}
+button {
+    margin: 1%;
+    width: 10vw;
+    height: 10vh;
+    background-color: lightgrey;
+}
+
+@media only screen and (max-width:1200px){
+    button {
+        margin: 1%;
+        width: 10vw;
+        height: 10vh;
+    }
+}
+@media only screen and (max-width:800px){
+    button {
+        margin: 1%;
+        width: 20vw;
+        height: 10vh;
+    }
+    #main {
+        height: 5vh;
+    }
+}
+
+.col {
+    width: 30%;
+}
+.function {
+    background-color: orange;
+}
+.clearOrCompute {
+    background-color: rgba(28, 28, 250, 0.541);
+}
